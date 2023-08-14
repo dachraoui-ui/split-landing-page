@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root{
+   --left-bg :rgba(87,84,236,0.7);
+   --right-bg: rgba(43,43,43,0.7);
+   --hover-left:rgba(234, 122, 30, 0.8);
+   --hover-right:rgba(15, 172, 10, 0.7);
+   --left-hover-width:75%;
+   --right-not-hover-width:25%;
+}
+*{
+   box-sizing: border-box;
+   white-space: nowrap;
+}
+body{
+   font-family: 'Roboto', sans-serif;
+   overflow: hidden;
+   margin: 0;
+   height: 100vh;
+}
+.container{
+   position: relative;
+   background-color: #333;
+   width: 100%;
+   height: 100%;
+}
+.section{
+   position: absolute;
+   width: 50%;
+   height:100%;
+   overflow: hidden;
+}
+.section.left{
+   left: 0;
+   background:url('HD\ wallpaper\ iphone.jpeg') ;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+.section.right{
+   right: 0;
+   background: url('sumsung.jpeg');
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+h1{
+   font-size: 4rem;
+   color: #fff;
+   position:absolute;
+   top:25%;
+   left:50%;
+   transform: translateX(-50%);
+}
+.section.left::before{
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: var(--left-bg);
+}
+
+.section.right::before{
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: var(--right-bg);
+}
+#btn{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   color: #fff;
+   border: 2px solid #fff;
+   padding: 1rem 2rem;
+   border-radius: 1px;
+   font-size: 0.8rem;
+   cursor: pointer;
+   text-decoration: none;
+}
+.section.left #btn:hover{
+   background-color: var(--hover-left);
+   border-color: var(--hover-left);
+}
+.section.right #btn:hover{
+   background-color: var(--hover-right);
+   border-color: var(--hover-right);
+}
+.hover-left .left {
+   width: var(--left-hover-width);
+}
+.hover-left .right {
+   width: var(--right-not-hover-width);
+}
+.hover-right .left{
+   width: var(--right-not-hover-width);
+}
+.hover-right .right{
+   width: var(--left-hover-width);
+}
+.section.left, .section.right, .section.left::before, .section.right::before{
+   transition: all 0.7s ease-in-out;
+}
+@media (max-width: 768px){
+   h1{
+      font-size: 2rem;
+   }
+   #btn{
+      padding: 0.5rem 1rem;
+   }
+}
+/* media query for small devices */
+
